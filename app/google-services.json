@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "304097712036",
+    "firebase_url": "https://cinema-booking-firebase.firebaseio.com",
+    "project_id": "cinema-booking-firebase",
+    "storage_bucket": "cinema-booking-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304097712036:android:6da6b1a485436137ec1331",
+        "android_client_info": {
+          "package_name": "com.namit.cinemabookingsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304097712036-uhg1fhvadchrpd52ubr1r0k0s3oe70k5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_mLj2eSBJ05VsjNnnDFFXxXZ_sWE1ijw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304097712036-uhg1fhvadchrpd52ubr1r0k0s3oe70k5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
