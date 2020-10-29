@@ -49,4 +49,6 @@
     <string name="do_you_want_to_add_some_snacks_beverages">Do you want to add some Snacks/Beverages??</string>
     <string name="no">no</string>
     <string name="yes">yes</string>
+    <string name="review">Review</string>
+    <string name="proceed_to_payment">proceed to payment</string>
 </resources>
