@@ -13,6 +13,7 @@ public class Seat_selection extends AppCompatActivity {
     public Cursor c2;
     private TextView seatSelection_heading;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,11 @@ public class Seat_selection extends AppCompatActivity {
         c2.moveToFirst();
         String heading_text=c2.getString(5)+": "+c2.getString(6);
         seatSelection_heading.setText(heading_text);
+
+
+
+
+
 
         //Toast.makeText(Seat_selection.this, "OnCreate called", Toast.LENGTH_SHORT).show();
     }
