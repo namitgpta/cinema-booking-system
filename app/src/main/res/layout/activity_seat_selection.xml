@@ -7,170 +7,6 @@
     android:background="@color/back_temp"
     tools:context=".Seat_selection">
 
-    <ToggleButton
-        android:id="@+id/toggleButton20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="304dp"
-        android:text="ToggleButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton3"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="304dp"
-        android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton1"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="304dp"
-        android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="304dp"
-        android:text="@string/togglebutton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="256dp"
-        android:text="ToggleButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton3"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="256dp"
-        android:text="@string/togglebutton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="256dp"
-        android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton1"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="256dp"
-        android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="208dp"
-        android:text="@string/togglebutton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="208dp"
-        android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
-        android:text="ToggleButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton3"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="208dp"
-        android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton1"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="156dp"
-        android:text="@string/togglebutton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="156dp"
-        android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton1"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
-        android:text="ToggleButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton3"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="156dp"
-        android:text="ToggleButton"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton"
-        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
-
     <TextView
         android:id="@+id/seat_selection_heading"
         android:layout_width="wrap_content"
@@ -216,19 +52,112 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="56dp"
         android:text="@string/togglebutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_seat" />
 
     <ToggleButton
-        android:id="@+id/toggleButton"
+        android:id="@+id/toggleButton16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="208dp"
+        android:text="ToggleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton3"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:text="ToggleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton3"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="256dp"
+        android:text="ToggleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton3"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/togglebutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="256dp"
         android:text="ToggleButton"
         app:layout_constraintStart_toEndOf="@+id/toggleButton1"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="160dp"
+        android:text="ToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton1"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="208dp"
+        android:text="ToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="108dp"
+        android:text="ToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="208dp"
+        android:text="@string/togglebutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="160dp"
+        android:text="ToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton"
         app:layout_constraintTop_toBottomOf="@+id/select_seat" />
 
     <ToggleButton
@@ -236,7 +165,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="56dp"
         android:text="ToggleButton"
         app:layout_constraintStart_toEndOf="@+id/toggleButton"
         app:layout_constraintTop_toBottomOf="@+id/select_seat" />
@@ -245,11 +174,82 @@
         android:id="@+id/toggleButton4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="56dp"
         android:text="ToggleButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toEndOf="@+id/toggleButton3"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="208dp"
+        android:text="ToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton1"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="256dp"
+        android:text="@string/togglebutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:text="ToggleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton3"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="160dp"
+        android:text="@string/togglebutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="256dp"
+        android:text="ToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="108dp"
+        android:text="ToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton1"
+        app:layout_constraintTop_toBottomOf="@+id/select_seat" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:text="ToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/toggleButton1"
         app:layout_constraintTop_toBottomOf="@+id/select_seat" />
 
     <TextView
@@ -263,6 +263,31 @@
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/proceed_seat_selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="@string/proceed"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="seat_to_decideSnacks_intent_change"/>
+
+    <TextView
+        android:id="@+id/amount_seat_selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:text="@string/total_amount_rs_300"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/proceed_seat_selection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />

@@ -44,4 +44,9 @@
     <string name="select_seat_to_be_booked">Select Seat to be Booked</string>
     <string name="togglebutton">ToggleButton</string>
     <string name="all_eyes_this_way">All Eyes This Way</string>
+    <string name="total_amount_rs_300">Total Amount: Rs.300</string>
+    <string name="proceed">Proceed</string>
+    <string name="do_you_want_to_add_some_snacks_beverages">Do you want to add some Snacks/Beverages??</string>
+    <string name="no">no</string>
+    <string name="yes">yes</string>
 </resources>
