@@ -12,7 +12,10 @@
         android:roundIcon="@drawable/cinema_ico_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".decide_snacks"></activity>
+        <activity android:name=".payment"></activity>
+        <activity android:name=".review_payment" />
+        <activity android:name=".snacks" />
+        <activity android:name=".decide_snacks" />
         <activity android:name=".Seat_selection" />
         <activity android:name=".book" />
         <activity android:name=".InsideBody" />

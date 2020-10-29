@@ -2,15 +2,17 @@ package com.namit.cinemabookingsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class decide_snacks extends AppCompatActivity {
     public SQLiteDatabase myDb;
     public Cursor c3;
-    String total_amount_str="";
+    String total_amount_str;
     private TextView total_amount;
 
     @Override
@@ -31,5 +33,15 @@ public class decide_snacks extends AppCompatActivity {
         if(bundle!=null){
             total_amount_str=String.valueOf(bundle.getInt("total_amount"));
         }
+    }
+
+    public void yes_decideSnacks_to_snacks(View view) {
+        Intent intent=new Intent(decide_snacks.this, snacks.class);
+        startActivity(intent);
+    }
+
+    public void no_decideSnacks_to_reviewPayment(View view) {
+        Intent intent=new Intent(decide_snacks.this, review_payment.class);
+        startActivity(intent);
     }
 }
