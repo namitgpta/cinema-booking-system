@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.namit.cinemabookingsystem.adapter.payment_RecyclerViewAdapter;
 
@@ -15,6 +16,7 @@ public class payment extends AppCompatActivity {
     private payment_RecyclerViewAdapter payment_recyclerViewAdapter;
     public SQLiteDatabase myDb;
     public static Cursor c1;
+    private TextView final_amount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,11 @@ public class payment extends AppCompatActivity {
 
         //setup adapter
         payment_recyclerViewAdapter=new payment_RecyclerViewAdapter(payment.this, c1);
-
         recyclerViewPayment.setAdapter(payment_recyclerViewAdapter);
+
+        final_amount=findViewById(R.id.amount_to_pay_final);
+        String amount_str="Amount to be Paid: Rs."+Seat_selection.amount;
+        final_amount.setText(amount_str);
     }
 
     private void initial(){
