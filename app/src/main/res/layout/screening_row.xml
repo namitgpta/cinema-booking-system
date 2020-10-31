@@ -57,14 +57,14 @@
                 android:text="@string/base_price_rs_300"
                 android:textSize="14sp" />
 
-            <ImageView
+            <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/movie_photo_portrait"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="11dp"
-                android:background="@raw/mirzapur2_portrait"
+                android:src="@raw/mirzapur2_portrait"
                 android:contentDescription="@string/todo" />
 
         </RelativeLayout>
