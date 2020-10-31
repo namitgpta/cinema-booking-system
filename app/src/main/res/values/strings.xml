@@ -40,7 +40,7 @@
     <string name="base_price_rs_300">Base Price: Rs.300</string>
     <string name="audi_1_mirzapur_2">Audi 1: Mirzapur 2</string>
     <string name="timings_20_00_to_00_00">Timings: 20:00 to 00:00</string>
-    <string name="select_seat_to_be_booked">Select Seat to be Booked</string>
+    <string name="select_seats_to_be_booked">Select Seats to be Booked</string>
     <string name="all_eyes_this_way">All Eyes This Way</string>
     <string name="total_amount_rs_300">Total Amount: Rs.300</string>
     <string name="proceed">Proceed</string>

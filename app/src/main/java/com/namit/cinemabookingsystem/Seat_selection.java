@@ -30,7 +30,7 @@ public class Seat_selection extends AppCompatActivity {
         initial();
         seatSelection_heading=findViewById(R.id.seat_selection_heading);
         c2.moveToFirst();
-        String heading_text=c2.getString(5)+": "+c2.getString(6);
+        String heading_text=c2.getString(6)+": "+c2.getString(7);
         seatSelection_heading.setText(heading_text);
 
         proceed=findViewById(R.id.proceed_seat_selection);
