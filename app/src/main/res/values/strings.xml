@@ -41,7 +41,6 @@
     <string name="audi_1_mirzapur_2">Audi 1: Mirzapur 2</string>
     <string name="timings_20_00_to_00_00">Timings: 20:00 to 00:00</string>
     <string name="select_seat_to_be_booked">Select Seat to be Booked</string>
-    <string name="togglebutton">ToggleButton</string>
     <string name="all_eyes_this_way">All Eyes This Way</string>
     <string name="total_amount_rs_300">Total Amount: Rs.300</string>
     <string name="proceed">Proceed</string>
@@ -56,4 +55,5 @@
     <string name="price_rs_30">Price: Rs.30</string>
     <string name="burger">Burger</string>
     <string name="amount_to_be_paid_rs_580">Amount to be Paid: Rs. 580</string>
+    <string name="togglebutton">ToggleButton</string>
 </resources>

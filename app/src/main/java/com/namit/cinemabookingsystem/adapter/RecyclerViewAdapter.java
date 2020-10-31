@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         String init_price="Base Price: Rs."+c1.getString(4);
         viewHolder.base_price.setText(init_price);
         String portrait_photo=c1.getString(3)+"_portrait";
+        //Toast.makeText(context, portrait_photo, Toast.LENGTH_SHORT).show();
         int resId= context.getResources().getIdentifier(portrait_photo, "raw", context.getPackageName());
         viewHolder.movie_portrait_photo.setBackgroundResource(resId);
     }
