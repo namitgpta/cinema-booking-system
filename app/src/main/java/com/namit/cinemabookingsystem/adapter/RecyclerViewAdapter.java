@@ -80,6 +80,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         @Override
         public void onClick(View v) {
             int position=getAdapterPosition();
+            c1.moveToPosition(position);
+            //Toast.makeText(context, c1.getString(0), Toast.LENGTH_SHORT).show();
+
+            DatabaseHelper.myDataBase.execSQL("update bookings set movie_name=?, room_name=?, timing=?, movie_name_str_id=?",
+                    new String[]{c1.getString(0), c1.getString(1), c1.getString(2), c1.getString(3)});
+
             Cursor c_temp= DatabaseHelper.myDataBase.rawQuery("select screenings._id from screenings " +
                     "join films f on f._id = screenings.film_id " +
                             "where film_id=?", new String[]{String.valueOf(InsideBody.current_counter)});

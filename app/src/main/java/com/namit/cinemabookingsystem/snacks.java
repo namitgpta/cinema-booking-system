@@ -35,6 +35,7 @@ public class snacks extends AppCompatActivity {
         snacks_recyclerViewAdapter =new snacks_RecyclerViewAdapter(snacks.this, c1);
         recyclerViewSnacks.setAdapter(snacks_recyclerViewAdapter);
 
+        snacks_RecyclerViewAdapter.snacks_booked=0;
         total_amount_snacks=findViewById(R.id.total_amount_snacks);
         String total_amount_snacks_str="Total Amount: Rs."+Seat_selection.amount;
         total_amount_snacks.setText(total_amount_snacks_str);

@@ -27,6 +27,7 @@ public class snacks_RecyclerViewAdapter extends RecyclerView.Adapter<snacks_Recy
     private Context context;
     //private List<Cursor> screening_row_details;
     private Cursor c1;
+    public static int snacks_booked=0;
 
     public snacks_RecyclerViewAdapter(Context context, Cursor c1) {
         this.context = context;
@@ -51,6 +52,7 @@ public class snacks_RecyclerViewAdapter extends RecyclerView.Adapter<snacks_Recy
         viewHolder.snack_price.setText(init_price);
         viewHolder.qty.setText(String.valueOf(0));
         viewHolder.plus.setOnClickListener(v -> {
+            snacks_booked++;
             viewHolder.qty.setText(String.valueOf(Integer.parseInt(viewHolder.qty.getText().toString())+1));
             Seat_selection.amount+=snackPrice;
             String total_amount_snacks_str="Total Amount: Rs."+Seat_selection.amount;
@@ -58,6 +60,7 @@ public class snacks_RecyclerViewAdapter extends RecyclerView.Adapter<snacks_Recy
         });
         viewHolder.minus.setOnClickListener(v -> {
             if(Integer.parseInt(viewHolder.qty.getText().toString())>0){
+                snacks_booked--;
                 viewHolder.qty.setText(String.valueOf(Integer.parseInt(viewHolder.qty.getText().toString())-1));
                 Seat_selection.amount-=snackPrice;
                 String total_amount_snacks_str="Total Amount: Rs."+Seat_selection.amount;

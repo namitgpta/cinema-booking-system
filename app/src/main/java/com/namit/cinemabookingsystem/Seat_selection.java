@@ -21,6 +21,7 @@ public class Seat_selection extends AppCompatActivity {
     public static int amount=0;
     public int seats_left;
     public int price_per_seat;
+    public static int seats_booked=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class Seat_selection extends AppCompatActivity {
         setContentView(R.layout.activity_seat_selection);
 
         initial();
+        seats_booked=0;
         seatSelection_heading=findViewById(R.id.seat_selection_heading);
         c2.moveToFirst();
         String heading_text=c2.getString(6)+": "+c2.getString(7);
@@ -72,7 +74,8 @@ public class Seat_selection extends AppCompatActivity {
             if(seats_left>0) {
                 amount += price_per_seat;
                 seats_left--;
-                System.out.println(seats_left);
+                seats_booked++;
+                //System.out.println(seats_left);
                 String amount_str="Total Amount: Rs."+amount;
                 total_amount.setText(amount_str);
             }else{
@@ -82,7 +85,8 @@ public class Seat_selection extends AppCompatActivity {
         }else{
             amount -= price_per_seat;
             seats_left++;
-            System.out.println(seats_left);;
+            seats_booked--;
+            //System.out.println(seats_left);;
             String amount_str="Total Amount: Rs."+amount;
             total_amount.setText(amount_str);
         }

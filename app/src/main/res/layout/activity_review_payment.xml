@@ -8,6 +8,66 @@
     tools:context=".review_payment">
 
     <TextView
+        android:id="@+id/review_timing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="44dp"
+        android:text="Starts at: 22:00"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/review_audi" />
+
+    <TextView
+        android:id="@+id/review_audi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="44dp"
+        android:text="Theatre Room: Audi 4"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/review_movie_name" />
+
+    <TextView
+        android:id="@+id/review_seats_booked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="44dp"
+        android:text="Seats Booked: 3"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/review_timing" />
+
+    <TextView
+        android:id="@+id/review_snacks_booked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="44dp"
+        android:text="Snacks Pre-ordered: 2"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/review_seats_booked" />
+
+    <TextView
+        android:id="@+id/review_total_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="44dp"
+        android:text="Total Amount: Rs.600"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/review_snacks_booked" />
+
+    <TextView
         android:id="@+id/heading_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,4 +90,29 @@
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="to_payment_page_intent"/>
+
+    <ImageView
+        android:id="@+id/review_image"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading_review"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/review_movie_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="20dp"
+        android:text="Movie Name: Mirzapur 2"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_image" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

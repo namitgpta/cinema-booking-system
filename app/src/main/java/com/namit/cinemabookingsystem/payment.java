@@ -33,7 +33,7 @@ public class payment extends AppCompatActivity {
         recyclerViewPayment.setAdapter(payment_recyclerViewAdapter);
 
         final_amount=findViewById(R.id.amount_to_pay_final);
-        String amount_str="Amount to be Paid: Rs."+Seat_selection.amount;
+        String amount_str="Amount to be Paid: Rs."+review_payment.final_total_amount_to_be_paid;
         final_amount.setText(amount_str);
     }
 
