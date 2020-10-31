@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.namit.cinemabookingsystem">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,7 +13,7 @@
         android:roundIcon="@drawable/cinema_ico_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".after_payment"></activity>
+        <activity android:name=".after_payment" />
         <activity android:name=".payment" />
         <activity android:name=".review_payment" />
         <activity android:name=".snacks" />
