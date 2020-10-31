@@ -8,7 +8,7 @@
     tools:context=".after_payment">
 
     <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_gif1"
         android:layout_width="142dp"
         android:layout_height="127dp"
         android:layout_marginStart="44dp"
@@ -28,6 +28,6 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView_gif1"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
