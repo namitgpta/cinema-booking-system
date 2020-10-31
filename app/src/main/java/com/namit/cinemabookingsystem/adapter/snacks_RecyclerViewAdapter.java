@@ -21,6 +21,7 @@ import com.namit.cinemabookingsystem.R;
 import com.namit.cinemabookingsystem.Seat_selection;
 import com.namit.cinemabookingsystem.after_payment;
 import com.namit.cinemabookingsystem.review_payment;
+import com.namit.cinemabookingsystem.snacks;
 
 public class snacks_RecyclerViewAdapter extends RecyclerView.Adapter<snacks_RecyclerViewAdapter.ViewHolder> {
     private Context context;
@@ -45,19 +46,25 @@ public class snacks_RecyclerViewAdapter extends RecyclerView.Adapter<snacks_Recy
         c1.moveToPosition(position);
 
         viewHolder.snack_name.setText(c1.getString(1));
-        String init_price="Price: Rs."+c1.getString(2);
+        int snackPrice=c1.getInt(2);
+        String init_price="Price: Rs."+snackPrice;
         viewHolder.snack_price.setText(init_price);
         viewHolder.qty.setText(String.valueOf(0));
-//        viewHolder.plus.setOnClickListener(v -> {
-//            viewHolder.qty.setText(Integer.parseInt(viewHolder.qty.getText().toString())+1);
-//
-//        });
-//        viewHolder.minus.setOnClickListener(v -> {
-//            if(Integer.parseInt(viewHolder.qty.getText().toString())>0){
-//                viewHolder.qty.setText(Integer.parseInt(viewHolder.qty.getText().toString())-1);
-//            }
-//
-//        });
+        viewHolder.plus.setOnClickListener(v -> {
+            viewHolder.qty.setText(String.valueOf(Integer.parseInt(viewHolder.qty.getText().toString())+1));
+            Seat_selection.amount+=snackPrice;
+            String total_amount_snacks_str="Total Amount: Rs."+Seat_selection.amount;
+            snacks.total_amount_snacks.setText(total_amount_snacks_str);
+        });
+        viewHolder.minus.setOnClickListener(v -> {
+            if(Integer.parseInt(viewHolder.qty.getText().toString())>0){
+                viewHolder.qty.setText(String.valueOf(Integer.parseInt(viewHolder.qty.getText().toString())-1));
+                Seat_selection.amount-=snackPrice;
+                String total_amount_snacks_str="Total Amount: Rs."+Seat_selection.amount;
+                snacks.total_amount_snacks.setText(total_amount_snacks_str);
+            }
+
+        });
 //        String portrait_photo=c1.getString(0)+"_portrait";
         int resId= context.getResources().getIdentifier(c1.getString(0), "raw", context.getPackageName());
         viewHolder.snack_portrait_photo.setBackgroundResource(resId);
