@@ -20,7 +20,6 @@
     <string name="enter_phone_no">Enter Phone No</string>
     <string name="submit">Submit</string>
     <string name="info_text">Developers: Namit Gupta Aditya Beri</string>
-    <string name="todo">TODO</string>
     <string name="hello_pavilion">Hello Pavilion</string>
     <string name="log_out">Log Out</string>
     <string name="button">Button</string>
@@ -52,4 +51,6 @@
     <string name="review">Review</string>
     <string name="proceed_to_payment">proceed to payment</string>
     <string name="credit_card">Credit Card</string>
+    <string name="ticket_booked">Ticket Booked !!!</string>
+    <string name="todo">TODO</string>
 </resources>

@@ -18,6 +18,7 @@ import com.namit.cinemabookingsystem.DatabaseHelper;
 import com.namit.cinemabookingsystem.InsideBody;
 import com.namit.cinemabookingsystem.R;
 import com.namit.cinemabookingsystem.Seat_selection;
+import com.namit.cinemabookingsystem.after_payment;
 
 public class payment_RecyclerViewAdapter extends RecyclerView.Adapter<payment_RecyclerViewAdapter.ViewHolder> {
     private Context context;
@@ -84,10 +85,10 @@ public class payment_RecyclerViewAdapter extends RecyclerView.Adapter<payment_Re
 //                    "where film_id=?", new String[]{String.valueOf(InsideBody.current_counter)});
 //            c_temp.moveToPosition(position);
 //            int screenings_id=Integer.parseInt(c_temp.getString(0));
-//            Intent intent=new Intent(context, Seat_selection.class);
-//            intent.putExtra("id", String.valueOf(screenings_id));
+            Intent intent=new Intent(context, after_payment.class);
+            intent.putExtra("position", String.valueOf(position));
 //            c_temp.close();
-//            context.startActivity(intent);
+            context.startActivity(intent);
         }
     }
 }
