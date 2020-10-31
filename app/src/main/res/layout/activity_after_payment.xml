@@ -7,7 +7,7 @@
     android:background="@color/back_temp"
     tools:context=".after_payment">
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/imageView"
         android:layout_width="142dp"
         android:layout_height="127dp"
@@ -15,7 +15,7 @@
         android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@raw/done_animated2"
+        android:src="@raw/done_animated2"
         android:contentDescription="@string/todo" />
 
     <TextView
