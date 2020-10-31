@@ -16,7 +16,7 @@ public class Seat_selection extends AppCompatActivity {
     public Cursor c2;
     private TextView seatSelection_heading, total_amount, seatSelection_timings;
     private Button proceed;
-    public int amount=0;
+    public static int amount=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

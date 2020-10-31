@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class decide_snacks extends AppCompatActivity {
     public SQLiteDatabase myDb;
     public Cursor c3;
-    String total_amount_str;
+    public static String total_amount_str;
     private TextView total_amount;
 
     @Override
