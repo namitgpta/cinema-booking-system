@@ -55,4 +55,5 @@
     <string name="todo">TODO</string>
     <string name="price_rs_30">Price: Rs.30</string>
     <string name="burger">Burger</string>
+    <string name="amount_to_be_paid_rs_580">Amount to be Paid: Rs. 580</string>
 </resources>
