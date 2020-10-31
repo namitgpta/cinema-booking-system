@@ -7,4 +7,16 @@
     android:background="@color/back_temp"
     tools:context=".payment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.124" />
+    <!-- 380dp, 700dp -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
