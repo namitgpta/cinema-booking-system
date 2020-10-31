@@ -56,4 +56,10 @@
     <string name="burger">Burger</string>
     <string name="amount_to_be_paid_rs_580">Amount to be Paid: Rs. 580</string>
     <string name="togglebutton">ToggleButton</string>
+    <string name="movie_name_mirzapur_2">Movie Name: Mirzapur 2</string>
+    <string name="total_amount_rs_600">Total Amount: Rs.600</string>
+    <string name="snacks_pre_ordered_2">Snacks Pre-ordered: 2</string>
+    <string name="seats_booked_3">Seats Booked: 3</string>
+    <string name="theatre_room_audi_4">Theatre Room: Audi 4</string>
+    <string name="starts_at_2200">Starts at: 22:00</string>
 </resources>
