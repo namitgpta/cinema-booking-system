@@ -54,4 +54,5 @@
     <string name="ticket_booked">Ticket Booked !!!</string>
     <string name="todo">TODO</string>
     <string name="price_rs_30">Price: Rs.30</string>
+    <string name="burger">Burger</string>
 </resources>

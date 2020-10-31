@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,12 +45,19 @@ public class snacks_RecyclerViewAdapter extends RecyclerView.Adapter<snacks_Recy
         c1.moveToPosition(position);
 
         viewHolder.snack_name.setText(c1.getString(1));
-//        String audi="Audi "+c1.getString(1);
-//        viewHolder.room_no.setText(audi);
-//        String start="Starts at "+c1.getString(2)+":00";
-//        viewHolder.start_time.setText(start);
         String init_price="Price: Rs."+c1.getString(2);
         viewHolder.snack_price.setText(init_price);
+        viewHolder.qty.setText(String.valueOf(0));
+//        viewHolder.plus.setOnClickListener(v -> {
+//            viewHolder.qty.setText(Integer.parseInt(viewHolder.qty.getText().toString())+1);
+//
+//        });
+//        viewHolder.minus.setOnClickListener(v -> {
+//            if(Integer.parseInt(viewHolder.qty.getText().toString())>0){
+//                viewHolder.qty.setText(Integer.parseInt(viewHolder.qty.getText().toString())-1);
+//            }
+//
+//        });
 //        String portrait_photo=c1.getString(0)+"_portrait";
         int resId= context.getResources().getIdentifier(c1.getString(0), "raw", context.getPackageName());
         viewHolder.snack_portrait_photo.setBackgroundResource(resId);
@@ -62,8 +70,8 @@ public class snacks_RecyclerViewAdapter extends RecyclerView.Adapter<snacks_Recy
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView snack_name;
-        //        public TextView room_no;
-//        public TextView start_time;
+        public Button plus, minus;
+        public TextView qty;
         public TextView snack_price;
         public ImageView snack_portrait_photo;
 
@@ -72,8 +80,9 @@ public class snacks_RecyclerViewAdapter extends RecyclerView.Adapter<snacks_Recy
 
             itemView.setOnClickListener(this);
             snack_name=itemView.findViewById(R.id.snack_name);
-//            room_no=itemView.findViewById(R.id.room_no);
-//            start_time=itemView.findViewById(R.id.start_time);
+            qty=itemView.findViewById(R.id.quantity_snack);
+            plus=itemView.findViewById(R.id.plus_snack);
+            minus=itemView.findViewById(R.id.minus_snack);
             snack_price=itemView.findViewById(R.id.price_snack);
             snack_portrait_photo=itemView.findViewById(R.id.snack_photo_portrait);
         }
@@ -86,10 +95,12 @@ public class snacks_RecyclerViewAdapter extends RecyclerView.Adapter<snacks_Recy
 //                    "where film_id=?", new String[]{String.valueOf(InsideBody.current_counter)});
 //            c_temp.moveToPosition(position);
 //            int screenings_id=Integer.parseInt(c_temp.getString(0));
-            Intent intent=new Intent(context, review_payment.class);
-            intent.putExtra("position", String.valueOf(position));
-//            c_temp.close();
-            context.startActivity(intent);
+
+
+//            Intent intent=new Intent(context, review_payment.class);
+//            intent.putExtra("position", String.valueOf(position));
+////            c_temp.close();
+//            context.startActivity(intent);
         }
     }
 }

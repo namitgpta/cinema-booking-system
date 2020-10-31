@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 
 import com.namit.cinemabookingsystem.adapter.payment_RecyclerViewAdapter;
 import com.namit.cinemabookingsystem.adapter.snacks_RecyclerViewAdapter;
@@ -36,6 +38,11 @@ public class snacks extends AppCompatActivity {
     private void initial(){
         myDb=DatabaseHelper.myDataBase;
         c1=myDb.rawQuery("select id_str, name, price from snacks", null);
+    }
+
+    public void snacks_to_review_payment_intent(View view) {
+        Intent intent = new Intent(snacks.this, review_payment.class);
+        startActivity(intent);
     }
 
     @Override
