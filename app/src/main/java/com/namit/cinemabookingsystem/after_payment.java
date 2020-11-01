@@ -1,6 +1,8 @@
 package com.namit.cinemabookingsystem;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Canvas;
@@ -8,13 +10,15 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
-import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -148,7 +152,7 @@ public class after_payment extends AppCompatActivity {
         canvas.drawText(String.valueOf(c1.getInt(6)), 970, 600, myPaint);
         canvas.drawText(String.valueOf(c1.getInt(8)), 970, 640, myPaint);
         myPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-        canvas.drawText(String.valueOf("Rs."+c1.getInt(5)), 970, 680, myPaint);
+        canvas.drawText("Rs." + c1.getInt(5), 970, 680, myPaint);
 
         myPaint.setTextAlign(Paint.Align.LEFT);
         canvas.drawText("\"Risk hai to Ishq hai\"", 30, 800, myPaint);
@@ -157,15 +161,51 @@ public class after_payment extends AppCompatActivity {
         canvas.drawText("Thank you very much. Come back again", 30, 840, myPaint);
 
         myPdfDocument.finishPage(myPage);
-        File file=new File(this.getExternalFilesDir("/"), "Cinema Booking "+ java.time.LocalDateTime.now() +".pdf");
+        String fileName="Cinema Booking "+ java.time.LocalDateTime.now() +".pdf";
+
+
+
+        isStoragePermissionGranted();
+        File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
+
+//        try
+//        {
+//            outputFile.createNewFile();
+//            OutputStream out = new FileOutputStream(outputFile);
+//            myPdfDocument.writeTo(out);
+//            myPdfDocument.close();
+//            out.close();
+//        }
+//        catch (IOException e)
+//        {
+//            e.printStackTrace();
+//        }
+
+        //File file=new File(this.getExternalFilesDir("/"), fileName);
 
         try {
-            myPdfDocument.writeTo(new FileOutputStream((file)));
+            myPdfDocument.writeTo(new FileOutputStream((outputFile)));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         myPdfDocument.close();
 
+    }
+
+    public void isStoragePermissionGranted() {
+        String TAG = "Storage Permission";
+        if (Build.VERSION.SDK_INT >= 28) {
+            if (this.checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG, "Permission is granted");
+            } else {
+                Log.v(TAG, "Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Permission is granted");
+        }
     }
 }
