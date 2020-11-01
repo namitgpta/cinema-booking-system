@@ -185,7 +185,9 @@ public class after_payment extends AppCompatActivity {
 
         try {
             myPdfDocument.writeTo(new FileOutputStream((outputFile)));
+            Toast.makeText(after_payment.this, "Downloaded !!\nCheck your Downloads folder", Toast.LENGTH_LONG).show();
         } catch (IOException e) {
+            Toast.makeText(after_payment.this, "Error Downloading...\nCheck for Storage permissions", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
 
