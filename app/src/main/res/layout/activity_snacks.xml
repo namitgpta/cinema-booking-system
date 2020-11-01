@@ -11,6 +11,7 @@
         android:id="@+id/recyclerView_snacks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingVertical="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,11 +33,12 @@
         android:id="@+id/proceed_snacks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
+        android:onClick="snacks_to_review_payment_intent"
         android:text="@string/proceed"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total_amount_snacks"
-        android:onClick="snacks_to_review_payment_intent"/>
+        app:layout_constraintTop_toBottomOf="@+id/total_amount_snacks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
