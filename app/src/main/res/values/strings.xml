@@ -63,4 +63,9 @@
     <string name="theatre_room_audi_4">Theatre Room: Audi 4</string>
     <string name="starts_at_2200">Starts at: 22:00</string>
     <string name="please_download_your_movie_ticket_receipt_by_clicking_this_icon">Please Download your Movie Ticket Receipt by clicking this icon:</string>
+    <string name="facebook_login">Facebook Login</string>
+
+    <string name="facebook_app_id">280833286771909</string>
+    <string name="fb_login_protocol_scheme">fb280833286771909</string>
+
 </resources>

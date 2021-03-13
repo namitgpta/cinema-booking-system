@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
@@ -187,27 +188,6 @@ public class InsideBody extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     protected void onStop() {
         //download();
@@ -249,7 +229,9 @@ public class InsideBody extends AppCompatActivity {
 
     public void logout_method(View view) {
         FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
         startActivity(new Intent(InsideBody.this, MainActivity.class));
+        Toast.makeText(InsideBody.this, "Logged out", Toast.LENGTH_SHORT).show();
         finish();
     }
 
