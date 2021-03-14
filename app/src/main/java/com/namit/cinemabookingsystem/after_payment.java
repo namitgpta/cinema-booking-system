@@ -2,6 +2,8 @@ package com.namit.cinemabookingsystem;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,9 +12,11 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -26,8 +30,10 @@ import com.google.firebase.auth.FirebaseUser;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class after_payment extends AppCompatActivity {
     public SQLiteDatabase myDb;
@@ -165,49 +171,62 @@ public class after_payment extends AppCompatActivity {
 
 
 
-        isStoragePermissionGranted();
+        //isStoragePermissionGranted();
         File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
 
-//        try
-//        {
-//            outputFile.createNewFile();
-//            OutputStream out = new FileOutputStream(outputFile);
-//            myPdfDocument.writeTo(out);
-//            myPdfDocument.close();
-//            out.close();
-//        }
-//        catch (IOException e)
-//        {
+        scoped_save(fileName, myPdfDocument);
+
+
+
+//        try {
+//            myPdfDocument.writeTo(new FileOutputStream((outputFile)));
+//            Toast.makeText(after_payment.this, "Downloaded !!\nCheck your Downloads folder", Toast.LENGTH_LONG).show();
+//        } catch (IOException e) {
+//            Toast.makeText(after_payment.this, "Error Downloading...\nCheck for Storage permissions", Toast.LENGTH_LONG).show();
 //            e.printStackTrace();
 //        }
-
-        //File file=new File(this.getExternalFilesDir("/"), fileName);
-
-        try {
-            myPdfDocument.writeTo(new FileOutputStream((outputFile)));
-            Toast.makeText(after_payment.this, "Downloaded !!\nCheck your Downloads folder", Toast.LENGTH_LONG).show();
-        } catch (IOException e) {
-            Toast.makeText(after_payment.this, "Error Downloading...\nCheck for Storage permissions", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
 
         myPdfDocument.close();
 
     }
 
-    public void isStoragePermissionGranted() {
-        String TAG = "Storage Permission";
-        if (Build.VERSION.SDK_INT >= 28) {
-            if (this.checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED) {
-                Log.v(TAG, "Permission is granted");
-            } else {
-                Log.v(TAG, "Permission is revoked");
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+    public void scoped_save(String filename, PdfDocument myPdfDocument){
+        OutputStream fos;
+        try{
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.Q){
+                ContentResolver resolver = getContentResolver();
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, filename);
+                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "application/pdf");
+                contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS + File.separator + "CinemaBookingSystem");
+
+                Uri pdfUri=resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues);
+                fos=resolver.openOutputStream(Objects.requireNonNull(pdfUri));
+                myPdfDocument.writeTo(fos);
+                Objects.requireNonNull(fos);
+
+                Toast.makeText(this, "Downloaded !!\nCheck your Downloads folder", Toast.LENGTH_LONG).show();
             }
-        }
-        else { //permission is automatically granted on sdk<23 upon installation
-            Log.v(TAG,"Permission is granted");
+
+        }catch (IOException e){
+            Toast.makeText(this, "Error Downloading...\nCheck for Storage permissions\nUsing Scoped MediaStore\n"+e.getMessage(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
         }
     }
+
+//    public void isStoragePermissionGranted() {
+//        String TAG = "Storage Permission";
+//        if (Build.VERSION.SDK_INT >= 28) {
+//            if (this.checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                    == PackageManager.PERMISSION_GRANTED) {
+//                Log.v(TAG, "Permission is granted");
+//            } else {
+//                Log.v(TAG, "Permission is revoked");
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+//            }
+//        }
+//        else { //permission is automatically granted on sdk<23 upon installation
+//            Log.v(TAG,"Permission is granted");
+//        }
+//    }
 }
