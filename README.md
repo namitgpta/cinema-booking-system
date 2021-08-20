@@ -1,2 +1,4 @@
 # cinema-booking-system
-Cinema Booking System - Frontend Demonstration App by Namit Gupta, VIT University, Vellore.
+Cinema Booking System - Frontend Demonstration App without any online backend.
+
+By Namit Gupta, VIT University, Vellore.
