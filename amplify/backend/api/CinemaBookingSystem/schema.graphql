@@ -6,6 +6,7 @@ type MovieModel @model @auth(rules: [{allow: public}]) {
   rating: String
   releaseDate: String
   pathName: String
+  externalLink: String
 }
 
 type UsersModel @model @auth(rules: [{allow: public}]) {

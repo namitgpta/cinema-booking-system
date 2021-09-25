@@ -1,7 +1,6 @@
 package com.namit.cinemabookingsystem;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -41,8 +40,8 @@ public class InsideBody extends AppCompatActivity {
 
     private ImageView movies_imageView;
     private TextView counter_textView;
-    public static int current_counter = 1;
-    private String[] moviePathName_list, movies_title_list, movieReleaseDate_list, movieDuration_list, movieRating_list;
+    public static int current_counter = 0;
+    private String[] moviePathName_list, movies_title_list, movieReleaseDate_list, movieDuration_list, movieRating_list, movieExternalLink_list;
     private TextView film_heading_textView, release_date_textView, filmDuration_textView, filmRating_textView;
     private TextView greetingTextView;
 
@@ -96,6 +95,7 @@ public class InsideBody extends AppCompatActivity {
         movieReleaseDate_list = new String[MAX_MOVIES_ALLOWED];
         movieDuration_list = new String[MAX_MOVIES_ALLOWED];
         movieRating_list = new String[MAX_MOVIES_ALLOWED];
+        movieExternalLink_list = new String[MAX_MOVIES_ALLOWED];
 
         //AWS Amplify DataStore movies fetching
         Amplify.DataStore.query(
@@ -109,17 +109,18 @@ public class InsideBody extends AppCompatActivity {
                         movieRating_list[NO_OF_MOVIES_FETCHED] = item.getRating();
                         movieReleaseDate_list[NO_OF_MOVIES_FETCHED] = item.getReleaseDate();
                         moviePathName_list[NO_OF_MOVIES_FETCHED] = item.getPathName();
+                        movieExternalLink_list[NO_OF_MOVIES_FETCHED] = item.getExternalLink();
 
                         Log.i("Amplify", "Id " + item.getId() + " ,Movie " + item.getTitle());
                         NO_OF_MOVIES_FETCHED++;
                     }
 
-                    String counter_initial_text = current_counter + " out of " + NO_OF_MOVIES_FETCHED;
+                    String counter_initial_text = current_counter + 1 + " out of " + NO_OF_MOVIES_FETCHED;
                     counter_textView.setText(counter_initial_text);
 
-                    int resId = getResources().getIdentifier(moviePathName_list[0], "raw", getPackageName());
+                    int resId = getResources().getIdentifier(moviePathName_list[current_counter], "raw", getPackageName());
                     movies_imageView.setBackgroundResource(resId);
-                    set_movie_details(0);
+                    set_movie_details(current_counter);
                 },
                 failure -> Log.e("Amplify", "Could not query DataStore: movies list", failure)
         );
@@ -152,22 +153,28 @@ public class InsideBody extends AppCompatActivity {
 //        }
 
         nextButton.setOnClickListener(v -> {
-            current_counter = current_counter == NO_OF_MOVIES_FETCHED ? NO_OF_MOVIES_FETCHED : current_counter + 1;
-            String ctr_text = current_counter + " out of " + NO_OF_MOVIES_FETCHED;
-            counter_textView.setText(ctr_text);
-            int resId = getResources().getIdentifier(moviePathName_list[current_counter - 1], "raw", getPackageName());
-            movies_imageView.setBackgroundResource(resId);
+            if (current_counter + 1 < NO_OF_MOVIES_FETCHED) {
+                current_counter++;
+                String ctr_text = current_counter + 1 + " out of " + NO_OF_MOVIES_FETCHED;
+                counter_textView.setText(ctr_text);
+                int resId = getResources().getIdentifier(moviePathName_list[current_counter], "raw", getPackageName());
+                movies_imageView.setBackgroundResource(resId);
 
-            set_movie_details(current_counter - 1);
+                set_movie_details(current_counter);
+            }
+
         });
         prevButton.setOnClickListener(v -> {
-            current_counter = current_counter == 1 ? 1 : current_counter - 1;
-            String ctr_text = current_counter + " out of " + NO_OF_MOVIES_FETCHED;
-            counter_textView.setText(ctr_text);
-            int resId = getResources().getIdentifier(moviePathName_list[current_counter - 1], "raw", getPackageName());
-            movies_imageView.setBackgroundResource(resId);
+            if (current_counter > 0) {
+                current_counter--;
+                String ctr_text = current_counter + 1 + " out of " + NO_OF_MOVIES_FETCHED;
+                counter_textView.setText(ctr_text);
+                int resId = getResources().getIdentifier(moviePathName_list[current_counter], "raw", getPackageName());
+                movies_imageView.setBackgroundResource(resId);
 
-            set_movie_details(current_counter - 1);
+                set_movie_details(current_counter);
+            }
+
         });
 
 
@@ -202,7 +209,6 @@ public class InsideBody extends AppCompatActivity {
                             awsEmail = item.getEmail();
                             awsName = item.getNameOfUser();
                         }
-                        //System.out.println(awsEmail);
 
                         String greet = "Hello, " + awsName + " (" + awsEmail + ")";
                         greetingTextView.setText(greet);
@@ -233,11 +239,14 @@ public class InsideBody extends AppCompatActivity {
     }
 
     public void movie_imageView_external_click(View view) {
-        try (Cursor c1 = myDb.rawQuery("select link from imdb_links where film_id=?", new String[]{String.valueOf(current_counter)})) {
-            c1.moveToFirst();
-            Intent external_link = new Intent(Intent.ACTION_VIEW, Uri.parse(c1.getString(0)));
-            startActivity(external_link);
-        }
+//        try (Cursor c1 = myDb.rawQuery("select link from imdb_links where film_id=?", new String[]{String.valueOf(current_counter)})) {
+//            c1.moveToFirst();
+//            Intent external_link = new Intent(Intent.ACTION_VIEW, Uri.parse(c1.getString(0)));
+//            startActivity(external_link);
+//        }
+
+        Intent external_link = new Intent(Intent.ACTION_VIEW, Uri.parse(movieExternalLink_list[current_counter]));
+        startActivity(external_link);
     }
 
     private void set_movie_details(int index) {

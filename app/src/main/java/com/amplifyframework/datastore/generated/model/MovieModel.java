@@ -32,6 +32,7 @@ public final class MovieModel implements Model {
   public static final QueryField RATING = field("MovieModel", "rating");
   public static final QueryField RELEASE_DATE = field("MovieModel", "releaseDate");
   public static final QueryField PATH_NAME = field("MovieModel", "pathName");
+  public static final QueryField EXTERNAL_LINK = field("MovieModel", "externalLink");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="Int", isRequired = true) Integer movieId;
   private final @ModelField(targetType="String") String title;
@@ -39,6 +40,7 @@ public final class MovieModel implements Model {
   private final @ModelField(targetType="String") String rating;
   private final @ModelField(targetType="String") String releaseDate;
   private final @ModelField(targetType="String") String pathName;
+  private final @ModelField(targetType="String") String externalLink;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -69,6 +71,10 @@ public final class MovieModel implements Model {
       return pathName;
   }
   
+  public String getExternalLink() {
+      return externalLink;
+  }
+  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
@@ -77,7 +83,7 @@ public final class MovieModel implements Model {
       return updatedAt;
   }
   
-  private MovieModel(String id, Integer movieId, String title, String duration, String rating, String releaseDate, String pathName) {
+  private MovieModel(String id, Integer movieId, String title, String duration, String rating, String releaseDate, String pathName, String externalLink) {
     this.id = id;
     this.movieId = movieId;
     this.title = title;
@@ -85,6 +91,7 @@ public final class MovieModel implements Model {
     this.rating = rating;
     this.releaseDate = releaseDate;
     this.pathName = pathName;
+    this.externalLink = externalLink;
   }
   
   @Override
@@ -102,6 +109,7 @@ public final class MovieModel implements Model {
               ObjectsCompat.equals(getRating(), movieModel.getRating()) &&
               ObjectsCompat.equals(getReleaseDate(), movieModel.getReleaseDate()) &&
               ObjectsCompat.equals(getPathName(), movieModel.getPathName()) &&
+              ObjectsCompat.equals(getExternalLink(), movieModel.getExternalLink()) &&
               ObjectsCompat.equals(getCreatedAt(), movieModel.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), movieModel.getUpdatedAt());
       }
@@ -117,6 +125,7 @@ public final class MovieModel implements Model {
       .append(getRating())
       .append(getReleaseDate())
       .append(getPathName())
+      .append(getExternalLink())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -134,6 +143,7 @@ public final class MovieModel implements Model {
       .append("rating=" + String.valueOf(getRating()) + ", ")
       .append("releaseDate=" + String.valueOf(getReleaseDate()) + ", ")
       .append("pathName=" + String.valueOf(getPathName()) + ", ")
+      .append("externalLink=" + String.valueOf(getExternalLink()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -170,6 +180,7 @@ public final class MovieModel implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -181,7 +192,8 @@ public final class MovieModel implements Model {
       duration,
       rating,
       releaseDate,
-      pathName);
+      pathName,
+      externalLink);
   }
   public interface MovieIdStep {
     BuildStep movieId(Integer movieId);
@@ -196,6 +208,7 @@ public final class MovieModel implements Model {
     BuildStep rating(String rating);
     BuildStep releaseDate(String releaseDate);
     BuildStep pathName(String pathName);
+    BuildStep externalLink(String externalLink);
   }
   
 
@@ -207,6 +220,7 @@ public final class MovieModel implements Model {
     private String rating;
     private String releaseDate;
     private String pathName;
+    private String externalLink;
     @Override
      public MovieModel build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -218,7 +232,8 @@ public final class MovieModel implements Model {
           duration,
           rating,
           releaseDate,
-          pathName);
+          pathName,
+          externalLink);
     }
     
     @Override
@@ -258,6 +273,12 @@ public final class MovieModel implements Model {
         return this;
     }
     
+    @Override
+     public BuildStep externalLink(String externalLink) {
+        this.externalLink = externalLink;
+        return this;
+    }
+    
     /** 
      * WARNING: Do not set ID when creating a new object. Leave this blank and one will be auto generated for you.
      * This should only be set when referring to an already existing object.
@@ -281,14 +302,15 @@ public final class MovieModel implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, Integer movieId, String title, String duration, String rating, String releaseDate, String pathName) {
+    private CopyOfBuilder(String id, Integer movieId, String title, String duration, String rating, String releaseDate, String pathName, String externalLink) {
       super.id(id);
       super.movieId(movieId)
         .title(title)
         .duration(duration)
         .rating(rating)
         .releaseDate(releaseDate)
-        .pathName(pathName);
+        .pathName(pathName)
+        .externalLink(externalLink);
     }
     
     @Override
@@ -319,6 +341,11 @@ public final class MovieModel implements Model {
     @Override
      public CopyOfBuilder pathName(String pathName) {
       return (CopyOfBuilder) super.pathName(pathName);
+    }
+    
+    @Override
+     public CopyOfBuilder externalLink(String externalLink) {
+      return (CopyOfBuilder) super.externalLink(externalLink);
     }
   }
   
