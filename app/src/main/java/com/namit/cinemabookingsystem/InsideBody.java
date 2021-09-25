@@ -32,10 +32,12 @@ public class InsideBody extends AppCompatActivity {
     private FirebaseUser firebaseUser;
     DatabaseHelper myDbHelper;
     public SQLiteDatabase myDb;
-    //private StorageReference mStorageRef;
-    //@SuppressLint("SdCardPath")
-    //Uri file = Uri.fromFile(new File("/data/data/com.namit.cinemabookingsystem/databases/cinema.db"));
-    //StorageReference riversRef;
+    /*
+    private StorageReference mStorageRef;
+    @SuppressLint("SdCardPath")
+    Uri file = Uri.fromFile(new File("/data/data/com.namit.cinemabookingsystem/databases/cinema.db"));
+    StorageReference riversRef;
+    */
 
     private ImageView movies_imageView;
     private TextView counter_textView;
@@ -258,7 +260,7 @@ public class InsideBody extends AppCompatActivity {
         LoginManager.getInstance().logOut();
         startActivity(new Intent(InsideBody.this, MainActivity.class));
         Toast.makeText(InsideBody.this, "Logged out", Toast.LENGTH_SHORT).show();
-        //Amplify.DataStore.clear(()->Log.i("Amplify", "Datastore cleaared"), failure->Log.e("Amplify", "Failed to clear"));
+        //Amplify.DataStore.clear(()->Log.i("Amplify", "Datastore cleared"), failure->Log.e("Amplify", "Failed to clear"));
         finish();
     }
 
