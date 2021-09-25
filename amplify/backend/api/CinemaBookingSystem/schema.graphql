@@ -1,0 +1,9 @@
+type UsersModel @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  firebaseId: String!
+  location: String
+  email: String
+  name: String
+  phone: String
+}
+ 

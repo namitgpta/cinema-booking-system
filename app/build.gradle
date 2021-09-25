@@ -25,6 +25,8 @@ android {
     // language features (either in its source code or
     // through dependencies).
     compileOptions {
+        // Support for Java 8 features
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -52,5 +54,13 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:9.0.0'
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:26.7.0')
+
+    // Amplify plugins
+    implementation 'com.amplifyframework:core:1.24.0'
+    implementation 'com.amplifyframework:aws-api:1.24.0'
+    implementation 'com.amplifyframework:aws-datastore:1.24.0'
+
+    // Support for Java 8 features
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.10'
 
 }

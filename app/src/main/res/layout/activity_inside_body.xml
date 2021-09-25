@@ -160,4 +160,18 @@
         app:layout_constraintVertical_bias="0.363"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
+    <TextView
+        android:id="@+id/greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:text="Hello, Oggy (oggy123@gmail.com)"
+        app:layout_constraintBottom_toTopOf="@+id/textView_heading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        android:fontFamily="@font/chewy"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

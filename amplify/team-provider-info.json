@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cinemabookingsystem-staging-130047-authRole",
+      "UnauthRoleArn": "arn:aws:iam::280119613987:role/amplify-cinemabookingsystem-staging-130047-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::280119613987:role/amplify-cinemabookingsystem-staging-130047-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-cinemabookingsystem-staging-130047-deployment",
+      "UnauthRoleName": "amplify-cinemabookingsystem-staging-130047-unauthRole",
+      "StackName": "amplify-cinemabookingsystem-staging-130047",
+      "StackId": "arn:aws:cloudformation:ap-south-1:280119613987:stack/amplify-cinemabookingsystem-staging-130047/6fe4dfc0-1d37-11ec-9ef2-0ae54e16c404",
+      "AmplifyAppId": "d1re4jo7yx9vfn"
+    }
+  }
+}
