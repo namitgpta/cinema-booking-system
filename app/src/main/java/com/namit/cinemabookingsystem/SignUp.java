@@ -38,21 +38,18 @@ public class SignUp extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
 
-        submit_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name=name_EditText.getText().toString().trim();
-                String email=email_EditText.getText().toString().trim();
-                String password=password_EditText.getText().toString().trim();
-                String phone=phone_EditText.getText().toString().trim();
-                if(emptyField(name, name_EditText) || emptyField(email, email_EditText) ||
-                   emptyField(password, password_EditText) || emptyField(phone, phone_EditText))
-                    return;
-                progressBar.setVisibility(View.VISIBLE);
-                createAccount(email, password, name, phone);
+        submit_Button.setOnClickListener(v -> {
+            String name=name_EditText.getText().toString().trim();
+            String email=email_EditText.getText().toString().trim();
+            String password=password_EditText.getText().toString().trim();
+            String phone=phone_EditText.getText().toString().trim();
+            if(emptyField(name, name_EditText) || emptyField(email, email_EditText) ||
+               emptyField(password, password_EditText) || emptyField(phone, phone_EditText))
+                return;
+            progressBar.setVisibility(View.VISIBLE);
+            createAccount(email, password, name, phone);
 
 
-            }
         });
 
     }

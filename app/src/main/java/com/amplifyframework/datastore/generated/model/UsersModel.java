@@ -29,14 +29,14 @@ public final class UsersModel implements Model {
   public static final QueryField FIREBASE_ID = field("UsersModel", "firebaseId");
   public static final QueryField LOCATION = field("UsersModel", "location");
   public static final QueryField EMAIL = field("UsersModel", "email");
-  public static final QueryField NAME = field("UsersModel", "name");
   public static final QueryField PHONE = field("UsersModel", "phone");
+  public static final QueryField NAME_OF_USER = field("UsersModel", "nameOfUser");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String firebaseId;
   private final @ModelField(targetType="String") String location;
   private final @ModelField(targetType="String") String email;
-  private final @ModelField(targetType="String") String name;
   private final @ModelField(targetType="String") String phone;
+  private final @ModelField(targetType="String") String nameOfUser;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -55,12 +55,12 @@ public final class UsersModel implements Model {
       return email;
   }
   
-  public String getName() {
-      return name;
-  }
-  
   public String getPhone() {
       return phone;
+  }
+  
+  public String getNameOfUser() {
+      return nameOfUser;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -71,13 +71,13 @@ public final class UsersModel implements Model {
       return updatedAt;
   }
   
-  private UsersModel(String id, String firebaseId, String location, String email, String name, String phone) {
+  private UsersModel(String id, String firebaseId, String location, String email, String phone, String nameOfUser) {
     this.id = id;
     this.firebaseId = firebaseId;
     this.location = location;
     this.email = email;
-    this.name = name;
     this.phone = phone;
+    this.nameOfUser = nameOfUser;
   }
   
   @Override
@@ -92,8 +92,8 @@ public final class UsersModel implements Model {
               ObjectsCompat.equals(getFirebaseId(), usersModel.getFirebaseId()) &&
               ObjectsCompat.equals(getLocation(), usersModel.getLocation()) &&
               ObjectsCompat.equals(getEmail(), usersModel.getEmail()) &&
-              ObjectsCompat.equals(getName(), usersModel.getName()) &&
               ObjectsCompat.equals(getPhone(), usersModel.getPhone()) &&
+              ObjectsCompat.equals(getNameOfUser(), usersModel.getNameOfUser()) &&
               ObjectsCompat.equals(getCreatedAt(), usersModel.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), usersModel.getUpdatedAt());
       }
@@ -106,8 +106,8 @@ public final class UsersModel implements Model {
       .append(getFirebaseId())
       .append(getLocation())
       .append(getEmail())
-      .append(getName())
       .append(getPhone())
+      .append(getNameOfUser())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -122,8 +122,8 @@ public final class UsersModel implements Model {
       .append("firebaseId=" + String.valueOf(getFirebaseId()) + ", ")
       .append("location=" + String.valueOf(getLocation()) + ", ")
       .append("email=" + String.valueOf(getEmail()) + ", ")
-      .append("name=" + String.valueOf(getName()) + ", ")
       .append("phone=" + String.valueOf(getPhone()) + ", ")
+      .append("nameOfUser=" + String.valueOf(getNameOfUser()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -168,8 +168,8 @@ public final class UsersModel implements Model {
       firebaseId,
       location,
       email,
-      name,
-      phone);
+      phone,
+      nameOfUser);
   }
   public interface FirebaseIdStep {
     BuildStep firebaseId(String firebaseId);
@@ -181,8 +181,8 @@ public final class UsersModel implements Model {
     BuildStep id(String id) throws IllegalArgumentException;
     BuildStep location(String location);
     BuildStep email(String email);
-    BuildStep name(String name);
     BuildStep phone(String phone);
+    BuildStep nameOfUser(String nameOfUser);
   }
   
 
@@ -191,8 +191,8 @@ public final class UsersModel implements Model {
     private String firebaseId;
     private String location;
     private String email;
-    private String name;
     private String phone;
+    private String nameOfUser;
     @Override
      public UsersModel build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -202,8 +202,8 @@ public final class UsersModel implements Model {
           firebaseId,
           location,
           email,
-          name,
-          phone);
+          phone,
+          nameOfUser);
     }
     
     @Override
@@ -226,14 +226,14 @@ public final class UsersModel implements Model {
     }
     
     @Override
-     public BuildStep name(String name) {
-        this.name = name;
+     public BuildStep phone(String phone) {
+        this.phone = phone;
         return this;
     }
     
     @Override
-     public BuildStep phone(String phone) {
-        this.phone = phone;
+     public BuildStep nameOfUser(String nameOfUser) {
+        this.nameOfUser = nameOfUser;
         return this;
     }
     
@@ -260,13 +260,13 @@ public final class UsersModel implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String firebaseId, String location, String email, String name, String phone) {
+    private CopyOfBuilder(String id, String firebaseId, String location, String email, String phone, String nameOfUser) {
       super.id(id);
       super.firebaseId(firebaseId)
         .location(location)
         .email(email)
-        .name(name)
-        .phone(phone);
+        .phone(phone)
+        .nameOfUser(nameOfUser);
     }
     
     @Override
@@ -285,13 +285,13 @@ public final class UsersModel implements Model {
     }
     
     @Override
-     public CopyOfBuilder name(String name) {
-      return (CopyOfBuilder) super.name(name);
+     public CopyOfBuilder phone(String phone) {
+      return (CopyOfBuilder) super.phone(phone);
     }
     
     @Override
-     public CopyOfBuilder phone(String phone) {
-      return (CopyOfBuilder) super.phone(phone);
+     public CopyOfBuilder nameOfUser(String nameOfUser) {
+      return (CopyOfBuilder) super.nameOfUser(nameOfUser);
     }
   }
   

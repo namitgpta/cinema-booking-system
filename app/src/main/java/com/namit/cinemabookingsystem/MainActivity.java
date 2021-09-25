@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -25,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button signUp, logIn;
     private LoginButton fbLogin;
     private FirebaseAuth mAuth;
-    private final String fbTAG="FB Login";
+    private final String fbTAG = "FB Login";
     private CallbackManager mCallbackManager;
     private ProgressBar progressBar;
 
@@ -34,13 +38,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        signUp=findViewById(R.id.sign_up);
-        logIn=findViewById(R.id.log_in);
-        fbLogin=findViewById(R.id.fb_login);
-        progressBar=findViewById(R.id.progressBar_loginFB);
+        // AWS starts
+        try {
+            Amplify.addPlugin(new AWSApiPlugin()); // UNCOMMENT this line once backend is deployed
+            Amplify.addPlugin(new AWSDataStorePlugin());
+            Amplify.configure(getApplicationContext());
+            Log.i("Amplify", "Initialized Amplify");
+        } catch (AmplifyException error) {
+            Log.e("Amplify", "Could not initialize Amplify", error);
+        }
+        // AWS ends
 
-        signUp.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, SignUp.class)));
-        logIn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LogIn.class)));
+        signUp = findViewById(R.id.sign_up);
+        logIn = findViewById(R.id.log_in);
+        fbLogin = findViewById(R.id.fb_login);
+        progressBar = findViewById(R.id.progressBar_loginFB);
+
+        signUp.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SignUp.class));
+        });
+        logIn.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, LogIn.class));
+        });
 
 
         // ...
@@ -51,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         fbLogin.setOnClickListener(v -> progressBar.setVisibility(View.VISIBLE));
 
         mCallbackManager = CallbackManager.Factory.create();
-        fbLogin=findViewById(R.id.fb_login);
+        fbLogin = findViewById(R.id.fb_login);
         //fbLogin.setReadPermissions("email", "public_profile");
         fbLogin.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -127,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
-        if(user!=null) {
+        if (user != null) {
             startActivity(new Intent(MainActivity.this, InsideBody.class));
             finish();
         }

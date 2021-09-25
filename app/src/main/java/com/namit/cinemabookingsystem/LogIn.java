@@ -36,18 +36,15 @@ public class LogIn extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
 
-        submit_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email=email_ET.getText().toString().trim();
-                String password=pass_ET.getText().toString().trim();
-                if(emptyField(email, email_ET) ||
-                        emptyField(password, pass_ET))
-                    return;
-                progressBar.setVisibility(View.VISIBLE);
-                userSignIn(email, password);
+        submit_btn.setOnClickListener(v -> {
+            String email=email_ET.getText().toString().trim();
+            String password=pass_ET.getText().toString().trim();
+            if(emptyField(email, email_ET) ||
+                    emptyField(password, pass_ET))
+                return;
+            progressBar.setVisibility(View.VISIBLE);
+            userSignIn(email, password);
 
-            }
         });
     }
 

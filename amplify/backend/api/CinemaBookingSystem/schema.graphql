@@ -1,9 +1,19 @@
+type MovieModel @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  movieId: Int!
+  title: String
+  duration: String
+  rating: String
+  releaseDate: String
+  pathName: String
+}
+
 type UsersModel @model @auth(rules: [{allow: public}]) {
   id: ID!
   firebaseId: String!
   location: String
   email: String
-  name: String
   phone: String
+  nameOfUser: String
 }
  
