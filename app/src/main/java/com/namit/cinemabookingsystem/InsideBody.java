@@ -1,6 +1,5 @@
 package com.namit.cinemabookingsystem;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -22,10 +21,7 @@ import com.amplifyframework.datastore.generated.model.UsersModel;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
-import java.io.File;
 import java.io.IOException;
 
 public class InsideBody extends AppCompatActivity {
@@ -34,15 +30,13 @@ public class InsideBody extends AppCompatActivity {
     public static int NO_OF_MOVIES_FETCHED = 0;
 
     private FirebaseUser firebaseUser;
-    public static String tagCinema = "tagCinema";
     DatabaseHelper myDbHelper;
     public SQLiteDatabase myDb;
-    private StorageReference mStorageRef;
-    @SuppressLint("SdCardPath")
-    Uri file = Uri.fromFile(new File("/data/data/com.namit.cinemabookingsystem/databases/cinema.db"));
+    //private StorageReference mStorageRef;
+    //@SuppressLint("SdCardPath")
+    //Uri file = Uri.fromFile(new File("/data/data/com.namit.cinemabookingsystem/databases/cinema.db"));
     //StorageReference riversRef;
 
-    private ImageButton nextButton, prevButton;
     private ImageView movies_imageView;
     private TextView counter_textView;
     public static int current_counter = 1;
@@ -50,7 +44,7 @@ public class InsideBody extends AppCompatActivity {
     private TextView film_heading_textView, release_date_textView, filmDuration_textView, filmRating_textView;
     private TextView greetingTextView;
 
-    @SuppressLint("ResourceType")
+    //@SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,16 +72,16 @@ public class InsideBody extends AppCompatActivity {
             }
             myDbHelper.openDataBase();
             //Toast.makeText(InsideBody.this, "Successfully Imported", Toast.LENGTH_SHORT).show();
-            myDb = myDbHelper.myDataBase;
+            myDb = DatabaseHelper.myDataBase;
         } // firebase user and Database connection details
 
         greetingTextView = findViewById(R.id.greeting);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+        //mStorageRef = FirebaseStorage.getInstance().getReference();
         initial();
 
-        nextButton = findViewById(R.id.next_imageButton);
-        prevButton = findViewById(R.id.prev_imageButton);
+        ImageButton nextButton = findViewById(R.id.next_imageButton);
+        ImageButton prevButton = findViewById(R.id.prev_imageButton);
         movies_imageView = findViewById(R.id.imageView_movies);
         counter_textView = findViewById(R.id.counter_movies);
         film_heading_textView = findViewById(R.id.film_name);
@@ -181,7 +175,7 @@ public class InsideBody extends AppCompatActivity {
 //        myDb.execSQL("update customers set _id=?", new String[]{firebaseUser.getUid()});
 //        myDb.execSQL("update customers set email=?", new String[]{firebaseUser.getEmail()});
         String nameFromSignUp = getIntent().getStringExtra("name");
-        String phone = getIntent().getStringExtra("phone");
+        //String phone = getIntent().getStringExtra("phone");
 //        if (name != null && phone != null) {
 //            myDb.execSQL("update customers set name=?", new String[]{name});
 //            myDb.execSQL("update customers set phone=?", new String[]{phone});
